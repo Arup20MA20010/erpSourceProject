@@ -25,6 +25,21 @@ cd erpSourceProject
 ```
 pip install -r requirements.txt
 ```
+## To run the server
+```
+python manage.py runserver
+```
+
+## To create superuser
+```
+python manage.py createsuperuser
+```
+## Whenever you clone,pull the repo, delete the files in the migrations folder except the init.py file and run the following commands.
+```
+python manage.py makemigrations
+python manage.py migrate
+```
 ### Now you are all set to go
+
 
 ### The requirements.txt will updated with time and so will be the readme.
