@@ -5,7 +5,7 @@ from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-keyWords = ['MA', 'EE', 'CS', 'GG', 'CH']
+keyWords = ['MA', 'EE', 'CS', 'GG', 'CH', 'EC']
 
 
 def rollNoValidator(rollNo):
