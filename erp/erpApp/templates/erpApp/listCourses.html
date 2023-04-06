@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block PageTitle %}
+    {{deptName|title}}
+{% endblock PageTitle %}
+
+{% block content %}
+    <ul>
+        {% for course in courseList %}
+            <li>{{course}}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

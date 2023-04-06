@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    # path('User', views.User, name='user'),
-    # path('Student', views.Student, name='student'),
-    # path('Professor', views.Professor, name='professor')
+    path("departments", views.listDepartments, name="listDepartment"),
+    path("<str:deptName>/courses", views.listCourses, name="listCourse"),
+    path("<str:deptCode>/courses", views.listCoursesCode, name="listCourseCode")
 ]

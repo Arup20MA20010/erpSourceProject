@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block PageTitle %}
+    Departments
+{% endblock PageTitle %}
+
+{% block content %}
+    <ul>
+        {% for department in departmentList %}
+            <li><a href="{% url 'listCourse' department.departmentName %}">{{department}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

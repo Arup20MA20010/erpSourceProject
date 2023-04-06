@@ -1,23 +1,29 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from .models import Department, Course
+from django.urls import reverse
 # Create your views here.
 
 
-# def register(request):
-#     pass
+def listDepartments(request):
+    departments = Department.objects.all()
+    print(departments)
+    return render(request, "erpApp/listDepartments.html", {
+        "departmentList": departments
+    })
 
 
-# def login(request):
-#     pass
+def listCourses(request, deptName):
+    department = Department.objects.get(departmentName=deptName)
+    courseList = department.dept.all()
+    return render(request, "erpApp/listCourses.html", {
+        "courseList": courseList,
+        "deptName": department.departmentName,
+    })
 
 
-# def User(request):
-#     return HttpResponse("User")
-
-
-# def Student(request):
-#     return HttpResponse('Student')
-
-
-def Professor(request):
-    return HttpResponse('Professor')
+def listCoursesCode(request, deptCode):
+    department = Department.objects.get(depCode=deptCode)
+    deptName = department.departmentName
+    redirectedUrl = reverse("listCourse", args=[deptName])
+    return HttpResponseRedirect(redirectedUrl)

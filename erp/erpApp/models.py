@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 # class User(models.Model):
 #     pass
-keyWords = ['MA', 'EE', 'CS', 'GG', 'CH', 'EC']
+keyWords = ['MA', 'EE', 'CS', 'GG', 'CH', 'EC', 'ME']
 
 
 def depError(depCode):
