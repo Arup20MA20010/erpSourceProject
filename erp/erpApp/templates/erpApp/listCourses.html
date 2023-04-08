@@ -4,9 +4,10 @@
 {% endblock PageTitle %}
 
 {% block content %}
+    {% include 'erpApp/includes/navbar.html' %}
     <ul>
         {% for course in courseList %}
-            <li>{{course}}</li>
+            <li><a href="{% url 'course' course%}">{{course}}</a></li>
         {% endfor %}
     </ul>
 {% endblock content %}

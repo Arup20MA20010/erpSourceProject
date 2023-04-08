@@ -5,7 +5,7 @@ from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-keyWords = ['MA', 'EE', 'CS', 'GG', 'CH', 'EC']
+keyWords = ['MA', 'EE', 'CS', 'GG', 'CH', 'EC','HS']
 
 
 def rollNoValidator(rollNo):
@@ -17,7 +17,9 @@ def rollNoValidator(rollNo):
 
 
 class UserRegistrationForm(UserCreationForm):
-    name = forms.CharField(max_length=100)
+    username=forms.CharField(max_length=150)
+    first_name=forms.CharField(max_length=100)
+    last_name=forms.CharField(max_length=100)
     roll_no = forms.CharField(max_length=9, validators=[rollNoValidator])
     email = forms.EmailField(required=True)
     phone_no = forms.CharField(required=True, validators=[
@@ -25,5 +27,9 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'name', 'roll_no', 'email',
+        fields = ['username', 'first_name', 'last_name','roll_no', 'email',
                   'phone_no', 'password1', 'password2']
+
+class LoginForm(forms.Form):
+    username=forms.CharField(max_length=150)
+    password=forms.CharField(max_length=100,widget=forms.PasswordInput)

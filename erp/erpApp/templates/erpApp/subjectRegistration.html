@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block PageTitle %}
+Subject Registration
+{% endblock PageTitle %}
+
+{% block content %}
+{% include 'erpApp/includes/navbar.html' %}
+<form action=""  method="post">
+    {% csrf_token %}
+    {{form}}
+    {% if errorBool %}
+        <p>{{errorMessage}}</p>
+    {% endif %}
+    <button type="submit">Register</button>
+</form>
+
+{% endblock content %}
