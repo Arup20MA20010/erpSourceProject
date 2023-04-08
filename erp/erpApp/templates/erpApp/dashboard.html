@@ -1,34 +1,34 @@
-{% extends 'base.html' %}
-
-{% block PageTitle %}{{name|title}}{% endblock PageTitle %}
+{% extends "base.html" %}
+{% block PageTitle %}
+    {{dashboard|title}}
+{% endblock PageTitle %}
 
 {% block content %}
     {% include 'erpApp/includes/navbar.html' %}
-    <h1>{{name}}</h1>
-    <table>
-        <tr>
-            <th>Course</th>
-            <th>Credits</th>
-            <th>Grade</th>
-        </tr>
-        {% for info in infoList %}
-            <tr>
-                <td>{{info.course}}</td>
-                <td>{{info.credits}}</td>
-                <td>{{info.grade}}</td>
-            </tr>
-        {% endfor %}
-    </table>
     <table>
         <tr>
             <th>Semester</th>
-            <th>Total Credits</th>
             <th>SGPA</th>
+            <th>TotalCredits</th>
         </tr>
+        {% for info in infoList %}
         <tr>
-            <td>{{semester}}</td>
-            <td>{{totalCredits}}</td>
-            <td>{{sgpa}}</td>
+            <th><a href="{% url 'dashboard' user.student.rollNo info.sem%}">{{info.sem}}</a></th>
+            <th>{{info.sgpa}}</th>
+            <th>{{info.totalCredits}}</th>
         </tr>
+        {% endfor %}
     </table>
+    <div>
+        <table>
+            <tr>
+                <th>CGPA</th>
+                <th>Total Credits</th>
+            </tr>
+            <tr>
+                <th>{{cgpa}}</th>
+                <th>{{totalCredit}}</th>
+            </tr>
+        </table>
+    </div>
 {% endblock content %}

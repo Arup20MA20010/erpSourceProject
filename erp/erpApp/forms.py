@@ -13,4 +13,5 @@ def courseValidation(courseName):
 
 class SubjectRegistrationForm(forms.Form):
     courseName=forms.CharField(max_length=100,required=True,validators=[courseValidation])
-    addMore=forms.BooleanField()
+    semester=forms.IntegerField()
+    addMore=forms.BooleanField(required=False)

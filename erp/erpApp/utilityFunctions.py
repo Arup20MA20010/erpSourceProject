@@ -53,6 +53,8 @@ def getSGPA(rollNo,semester):
         sgpa=sumScore/totalCredits
     else:
         sgpa=0
+    
+    sgpa=round(sgpa,2)
     return (sgpa,totalCredits)
 
 def getCGPA(rollNo,semester):
@@ -67,6 +69,8 @@ def getCGPA(rollNo,semester):
         cgpa=totalScore/totalCredit
     else:
         cgpa=0
+
+    cgpa=round(cgpa,2)
     return (cgpa,totalCredit)
 
 def ifCouseTaken(rollNo,courseName):
@@ -85,3 +89,11 @@ def getStudentsFromAGivenDepartment(department):
     studentList=Student.objects.filter(rollNo__icontains=depCode)
     return studentList
     
+def getMaxSemesterRegistered(rollNo):
+    student=Student.objects.get(rollNo=rollNo)
+    maxSem=0
+    enrollmentList=student.enrollments.all()
+    for enrollment in enrollmentList:
+        maxSem=max(enrollment.courseData.semester,maxSem)
+
+    return maxSem
