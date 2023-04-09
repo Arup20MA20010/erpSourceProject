@@ -5,38 +5,55 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'listDepartment' %}"> <span class="sr-only">Show all Departments</span></a>
-        </li>
-        {% if user.is_authenticated and not user.is_staff %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-                Action
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'listMyCourse' user.student.rollNo %}">Show my Courses</a>
-                <a class="dropdown-item" href="{% url 'subjectRegistration' user.student.rollNo%}">Subject Registration</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'dashboardOverall' user.student.rollNo %}">Dashboard</a>
-                </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'listDepartment' %}"> <span class="sr-only">Show all Departments</span></a>
+            </li>
+            {% if user.is_authenticated and not user.is_staff %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
+                    Action
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'listMyCourse' user.student.rollNo %}">Show my Courses</a>
+                    <a class="dropdown-item" href="{% url 'subjectRegistration' user.student.rollNo%}">Subject Registration</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'dashboardOverall' user.student.rollNo %}">Dashboard</a>
+                    </div>
+                </li>
+        </ul>
+        <ul class="navbar-nav" style="margin-left:auto;">
+            <li class="nav-item">
+                <a href="/" class="nav-link">Hello, {{user.student.rollNo}}</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout" class="nav-link">Logout</a>
             </li>
         </ul>
-            {% comment %} <form class="form-inline my-2 my-lg-0">
+        {% else %}
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout">Logout</a>
+            </li>
+        </ul>       
+                {% comment %} <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> {% endcomment %}
+    </div>
         {% endif %}
         {% comment %} <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
-        </li> {% endcomment %}
-    </div>
-</nav>
+        </li> {% endcomment %
+  </nav>
 {% comment %} <header id="main-navigation">
-    <h1><a href="/">Welcome to ERP portal</a><h1>
-    <nav>
+    <nav class="navbar navbar-dark bg-dark">
+        <h1><a href="/">Welcome to ERP portal</a><h1>
         <a href="{% url 'listDepartment' %}">Show all Departments</a>
-        {% if user.is_authenticated and not user.is_staff %}
+        {% if user.is_authenticated and not user.is_staff%}
             <div>
                 <a href="{% url 'listMyCourse' user.student.rollNo %}">Show my Courses</a>
                 <a href="{% url 'subjectRegistration' user.student.rollNo%}">Subject registration</a>

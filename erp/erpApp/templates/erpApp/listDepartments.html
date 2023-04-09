@@ -4,10 +4,12 @@
 {% endblock PageTitle %}
 
 {% block content %}
-    {% include 'erpApp/includes/navbar.html' %}
-    <ul>
-        {% for department in departmentList %}
-            <li><a href="{% url 'listCourse' department.departmentName %}">{{department}}</a></li>
-        {% endfor %}
-    </ul>
+    {% comment %} {% include 'erpApp/includes/navbar.html' %} {% endcomment %}
+    <div>
+        <ul>
+            {% for department in departmentList %}
+                <li><a href="{% url 'listCourse' department.departmentName %}">{{department}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}

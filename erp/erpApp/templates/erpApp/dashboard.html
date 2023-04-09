@@ -4,31 +4,41 @@
 {% endblock PageTitle %}
 
 {% block content %}
-    {% include 'erpApp/includes/navbar.html' %}
-    <table>
-        <tr>
-            <th>Semester</th>
-            <th>SGPA</th>
-            <th>TotalCredits</th>
-        </tr>
-        {% for info in infoList %}
-        <tr>
-            <th><a href="{% url 'dashboard' user.student.rollNo info.sem%}">{{info.sem}}</a></th>
-            <th>{{info.sgpa}}</th>
-            <th>{{info.totalCredits}}</th>
-        </tr>
-        {% endfor %}
-    </table>
-    <div>
-        <table>
-            <tr>
-                <th>CGPA</th>
-                <th>Total Credits</th>
-            </tr>
-            <tr>
-                <th>{{cgpa}}</th>
-                <th>{{totalCredit}}</th>
-            </tr>
+    {% comment %} {% include 'erpApp/includes/navbar.html' %} {% endcomment %}
+    <div class="container-fluid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Semester</th>
+                    <th scope="col">SGPA</th>
+                    <th scope="col">TotalCredits</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in infoList %}
+                    <tr>
+                        <th scope="row"><a href="{% url 'dashboard' user.student.rollNo info.sem%}">{{info.sem}}</a></th>
+                        <td>{{info.sgpa}}</th>
+                        <td>{{info.totalCredits}}</th>
+                    </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">CGPA</th>
+                    <th scope="col">Total Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{cgpa}}</th>
+                    <td>{{totalCredit}}</th>
+                </tr>
+            </tbody>
         </table>
     </div>
 {% endblock content %}
