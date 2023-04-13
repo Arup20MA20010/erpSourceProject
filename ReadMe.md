@@ -15,7 +15,7 @@ env\Scripts\activate.bat
 ```
 ## git clone the link [erpProject](https://github.com/Arup20MA20010/erpSourceProject.git)
 ```
-git clone https://github.com/Arup20MA20010erpSourceProject.git
+git clone https://github.com/Arup20MA20010/erpSourceProject.git
 ```
 ## Move to the directory erpSourceProject
 ```
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-## To create superuser
+## To create superuser for the admin panel
 ```
 python manage.py createsuperuser
 ```
