@@ -12,6 +12,7 @@ User Registration
             {% for field in form %}
                 <div class="form-outline mb-4">
                     <p>{{field.label}}:<br>{{field}}</p>
+                    <p>{{field.errors}}</p>
                 </div>
             {% endfor %}
             

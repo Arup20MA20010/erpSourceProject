@@ -1,6 +1,6 @@
-# from django.urls import path
-# from . import views
+from django.urls import path
+from . import views
 
-# urlpatterns = [
-#     path('facultyRegistration',views.FacultyReg.as_view(),name="facReg")
-# ]
+urlpatterns = [
+    path('facultyRegistration', views.FacultyReg.as_view(), name="facReg")
+]
