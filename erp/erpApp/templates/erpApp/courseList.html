@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block PageTitle %}
+My Courses
+{% endblock PageTitle %}
+
+{% block content %}
+<h1>Semester:{{semester}}</h1>
+<div class='mx-5'>
+    {% for course in courseList %}
+        {% if not checked %}
+            <div>
+                {{course}} {% if registered %}registered {% else %} not registered{% endif %}
+            </div>
+        {% else %}
+            <div>
+                {{course.course}} {{course.credits}} registered {% if course.grade == "-1" %}not yet checked {% else %}{{course.grade}}{% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

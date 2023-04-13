@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block PageTitle %}
+Subject Registration
+{% endblock PageTitle %}
+
+{% block content %}
+{% comment %} {% include 'erpApp/includes/navbar.html' %} {% endcomment %}
+<div>
+    <form action=""  method="post">
+        {% csrf_token %}
+        {{semForm}}
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock content %}

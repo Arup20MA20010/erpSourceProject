@@ -5,38 +5,38 @@
 
 {% block content %}
     {% comment %} {% include 'erpApp/includes/navbar.html' %} {% endcomment %}
-    <div class="container-fluid">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Semester</th>
-                    <th scope="col">SGPA</th>
-                    <th scope="col">TotalCredits</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for info in infoList %}
-                    <tr>
-                        <th scope="row"><a href="{% url 'dashboard' user.student.rollNo info.sem%}">{{info.sem}}</a></th>
-                        <td>{{info.sgpa}}</th>
-                        <td>{{info.totalCredits}}</th>
-                    </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    <div class="container-fluid card w-75 mb-3 mt-3">
+        <div class="grid text-center" style="border-bottom:2px solid black">
+            <center class="row">
+                <div class="col-4 py-3">Semester</div>
+                <div class="col-4 py-3">SGPA</div>
+                <div class="col-4 py-3">Total Credits</div>
+            </center>
+        </div>
+        {% for info in infoList %}
+        <div class="col-12 mb-3 mt-3" style="border-bottom:2px solid black;">
+            <center class="row">
+                <a href="{% url 'dashboard' user.student.rollNo info.sem%}" class="row clickable">
+                    <div class="col-4 py-2" >{{info.sem}}</div>
+                    <div class="col-4 py-2" >{{info.sgpa}}</div>
+                    <div class="col-4 py-2">{{info.totalCredits}}</div>
+                </a>
+            </center>
+        </div>
+        {% endfor %}
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid card w-75 mt-3">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">CGPA</th>
-                    <th scope="col">Total Credits</th>
+                    <th class="float-start" scope="col">CGPA</th>
+                    <th class="float-end" scope="col">Total Credits</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{cgpa}}</th>
-                    <td>{{totalCredit}}</th>
+                    <td class="float-start">{{cgpa}}</th>
+                    <td class="float-end">{{totalCredit}}</th>
                 </tr>
             </tbody>
         </table>

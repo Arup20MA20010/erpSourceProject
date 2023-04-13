@@ -5,17 +5,35 @@ Login Page
 
 {% block content %}
     {% comment %} {% include 'includes/navbar.html' %} {% endcomment %}
-    <form action="" method="post">
-        {% for field in form %}
-            <p>{{field.label}}:<br> {{field}}</p>
-        {% endfor %}
-        {% csrf_token %}
+    <div class="card mx-5 text-center shadow p-3 mb-5 mt-5  bg-body-tertiary rounded">
         <div>
-            {% if messageBool %}
-                <p>message</p>
-            {% endif %}
+            <form action="" method="post">
+                {% for field in form %}
+                    <div class='form-outline mb-4'>
+                        <p>{{field.label}}:<br> {{field}}</p>
+                    </div>
+                {% endfor %}
+                {% csrf_token %}
+                <div>
+                    {% if messageBool %}
+                        <p>message</p>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+                <div class="text-center">
+                    <p>Not a member? <a href="{% url 'registration' %}">Register</a></p>
+                </div>
+            </form>
+
         </div>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="{% url 'registration' %}">Signup here</a></p>
+    </div>
 {% endblock content %}
+
+
+<!-- Pills navs -->
+
+  <!-- Pills navs -->
+  
+  <!-- Pills content -->
+  
+  <!-- Pills content -

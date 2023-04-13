@@ -5,9 +5,28 @@ User Registration
 {% block content %}
 {% comment %} {% include 'includes/navbar.html' %} {% endcomment %}
 <hr>
-<form action="" method="POST">
+<div class="card mx-5 text-center shadow p-3 mb-5 mt-5  bg-body-tertiary rounded">
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-outline mb-4">
+                    <p>{{field.label}}:<br>{{field}}</p>
+                </div>
+            {% endfor %}
+            
+            <button type="submit" class="btn btn-primary btn-block mb-3">Register</button>
+        </form>
+    </div>
+</div>
+{% comment %} <form action="" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Register</button>
-</form>
+    {% for field in form %}
+        <div class="form-outline mb-4">
+            <p>{{field.label}}:<br>{{field}}</p>
+        </div>
+    {% endfor %}
+    
+    <button type="submit" class="btn btn-primary btn-block mb-3">Register</button>
+</form> {% endcomment %}
 {%endblock%}

@@ -5,7 +5,7 @@
 
 {% block content %}
     {% comment %} {% include 'erpApp/includes/navbar.html' %} {% endcomment %}
-    <div>
+    <div class='mx-5'>
         <ul>
             {% for course in courseList %}
                 <li><a href="{% url 'course' course%}">{{course}}</a></li>
