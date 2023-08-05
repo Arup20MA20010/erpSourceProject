@@ -39,6 +39,8 @@ class Course(models.Model):
     def __str__(self):
         return f"{self.courseName}"
 
+class FeePayment(models.Model):
+    pass
 
 class Enrollments(models.Model):
     courseData = models.ForeignKey(

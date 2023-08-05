@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Faculty
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
@@ -37,6 +37,6 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)
 
 
-# class QueryForm(forms.Form):
-#     faculty = forms.ChoiceField(choices=getFacultyList(Faculty))
-#     query = forms.CharField(widget=forms.Textarea)
+class QueryForm(forms.Form):
+    faculty = forms.ChoiceField(choices=getFacultyList(Faculty))
+    query = forms.CharField(widget=forms.Textarea)

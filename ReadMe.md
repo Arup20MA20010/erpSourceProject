@@ -29,7 +29,8 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
-
+## After running the server you can go to the link
+## To go to the admin Panel you can go to localhost:3000/admin
 ## To create superuser for the admin panel
 ```
 python manage.py createsuperuser
